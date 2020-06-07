@@ -10,14 +10,14 @@ script:
     - docker run -e CI=true ielghonimi/react-test npm test
 
 after_success:
-    - docker build -t markib5/multi-client ./client
-    - docker build -t markib5/multi-nginx ./nginx
-    - docker build -t markib5/multi-server ./server
-    - docker build -t markib5/multi-worker ./worker
+    - docker build -t ielghonimi/multi-client ./client
+    - docker build -t ielghonimi/multi-nginx ./nginx
+    - docker build -t ielghonimi/multi-server ./server
+    - docker build -t ielghonimi/multi-worker ./worker
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push them to docker hub
-    - docker push markib5/multi-client
-    - docker push markib5/multi-nginx
-    - docker push markib5/multi-server
-    - docker push markib5/multi-worker
+    - docker push ielghonimi/multi-client
+    - docker push ielghonimi/multi-nginx
+    - docker push ielghonimi/multi-server
+    - docker push ielghonimi/multi-worker
